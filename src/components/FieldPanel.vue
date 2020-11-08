@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="bg-gray-800 w-full">
     FIELD PANEL
   </div>
 </template>
 
 <script>
 export default {
-  name: 'FIELD PANEL'
+  name: 'FIELDPANEL'
 }
 </script>

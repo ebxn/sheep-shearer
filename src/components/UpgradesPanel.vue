@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-gray-800 w-full">
     UPGRADES PANEL
   </div>
 </template>

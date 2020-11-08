@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-full bg-gray-800">
     SHEEP PANEL
   </div>
 </template>

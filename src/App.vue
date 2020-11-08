@@ -13,22 +13,22 @@
     <main class="flex lg:flex-1">
       <div class="flex flex-wrap w-full">
         <!-- sheep clicker panel -- top@mobile left@pc -->
-        <div class="order-1 border-b lg:border-b-0 lg:border-r border-indigo-500 w-full lg:w-2/5">
-          <div class="px-4 py-2">
+        <div class="flex order-1 border-b lg:border-b-0 lg:border-r border-indigo-500 w-full lg:w-2/5">
+          <div class="flex p-4 w-full">
             <SheepPanel />
           </div>
         </div>
 
         <!-- field canvas panel -- bottom@mobile middle@pc -->
-        <div class="order-3 lg:order-2 lg:border-r border-indigo-500 w-full lg:w-2/5">
-          <div class="px-4 py-2">
+        <div class="flex order-3 lg:order-2 lg:border-r border-indigo-500 w-full lg:w-2/5">
+          <div class="flex w-full">
             <FieldPanel />
           </div>
         </div>
 
         <!-- upgrades panel -- middle@mobile bottom@pc -->
-        <div class="order-2 lg:order-3 border-b lg:border-b-0 border-indigo-500 w-full lg:w-1/5">
-          <div class="px-4 py-2">
+        <div class="flex order-2 lg:order-3 border-b lg:border-b-0 border-indigo-500 w-full lg:w-1/5">
+          <div class="flex p-4 w-full">
             <UpgradesPanel />
           </div>
         </div>
