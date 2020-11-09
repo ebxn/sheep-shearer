@@ -5,4 +5,5 @@
 /* disable double-tap zoom */
 * {
     touch-action: manipulation;
+    user-select: none;
 }
