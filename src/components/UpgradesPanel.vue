@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <div class="md:overflow-y-scroll w-full h-full">
     <ul class="space-y-5">
       <li
         v-for="sheep in visibleSheepTypes"
@@ -11,7 +11,7 @@
           {{ sheep.name }}
         </h3>
         <span class="block">Price: {{ sheep.price }} wool</span>
-        <span class="block">WoolPerSecond: {{ sheep.wps }}</span>
+        <span class="block">WPS: {{ sheep.wps }}</span>
         <span class="block">Owned: {{ sheep.owned }}</span>
       </li>
     </ul>
@@ -31,7 +31,7 @@ export default {
       const sheepTypeValues = Object.values(this.sheepTypes)
 
       return sheepTypeValues.filter((val, idx) => {
-        return idx < 2 || sheepTypeValues[idx - 2].owned > 0
+        return idx < 2 || sheepTypeValues[idx - 1].owned > 0
       })
     }
   },

@@ -1,12 +1,12 @@
 <template>
   <div
     id="app"
-    class="transition-colors duration-150 ease-in-out flex flex-col dark:bg-gray-900 min-h-screen dark:text-gray-50"
+    class="transition-colors duration-150 ease-in-out flex flex-col overflow-x-hidden md:overflow-y-hidden dark:bg-gray-900 min-h-screen md:min-h-auto md:h-screen dark:text-gray-50"
   >
     <AppHeader />
 
-    <main class="flex md:flex-1">
-      <div class="flex flex-wrap w-full">
+    <main class="flex md:flex-1 md:overflow-y-hidden h-full">
+      <div class="flex flex-wrap md:overflow-y-hidden w-full h-full">
         <!-- sheep -->
         <div class="flex border-b md:border-b-0 md:border-r dark:border-indigo-500 w-full md:w-3/12">
           <div class="flex p-4 w-full">
@@ -22,8 +22,8 @@
         </div>
 
         <!-- upgrades -->
-        <div class="flex w-full md:w-3/12">
-          <div class="flex p-4 w-full">
+        <div class="flex w-full md:overflow-y-hidden md:w-3/12 h-full">
+          <div class="md:overflow-y-hidden p-4 w-full h-full ">
             <UpgradesPanel />
           </div>
         </div>
