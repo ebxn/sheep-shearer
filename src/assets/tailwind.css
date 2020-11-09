@@ -1,5 +1,8 @@
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
+
+/* disable double-tap zoom */
+* {
+    touch-action: manipulation;
+}
