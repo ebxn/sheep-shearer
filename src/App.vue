@@ -16,21 +16,21 @@
     <main class="flex md:flex-1">
       <div class="flex flex-wrap w-full">
         <!-- sheep -->
-        <div class="flex border-b md:border-b-0 md:border-r border-indigo-500 w-full md:w-3/12">
+        <div class="flex border-b md:border-b-0 md:border-r dark:border-indigo-500 w-full md:w-3/12">
           <div class="flex p-4 w-full">
             <SheepPanel />
           </div>
         </div>
 
         <!-- field -->
-        <div class="flex md:border-r border-indigo-500 w-full md:w-6/12">
+        <div class="flex md:border-r dark:border-indigo-500 w-full md:w-6/12">
           <div class="w-full h-64 md:h-auto">
             <FieldPanel />
           </div>
         </div>
 
         <!-- upgrades -->
-        <div class="flex border-b md:border-b-0 border-indigo-500 w-full md:w-3/12">
+        <div class="flex border-b md:border-b-0 dark:border-indigo-500 w-full md:w-3/12">
           <div class="flex p-4 w-full">
             <UpgradesPanel />
           </div>
