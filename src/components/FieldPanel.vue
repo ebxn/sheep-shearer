@@ -46,13 +46,14 @@ export default {
   },
   methods: {
     addNewSheepToCanvas: function (sheepType) {
-      const sheepX = 64 + Math.floor(Math.random() * (this.canvas.width - 128))
-      const sheepY = 64 + Math.floor(Math.random() * (this.canvas.height - 128))
+      const imageSize = window.innerWidth <= 767 ? 32 : 64
+      const sheepX = imageSize + Math.floor(Math.random() * (this.canvas.width - 2 * imageSize))
+      const sheepY = imageSize + Math.floor(Math.random() * (this.canvas.height - 2 * imageSize))
 
       const sheepImage = new Image()
       sheepImage.src = require(`@/assets/img/${sheepType}.png`)
       sheepImage.onload = () => {
-        this.canvasContext.drawImage(sheepImage, sheepX, sheepY, 64, 64)
+        this.canvasContext.drawImage(sheepImage, sheepX, sheepY, imageSize, imageSize)
         this.sheep.push({ image: sheepImage, x: sheepX, y: sheepY })
       }
     },
@@ -68,9 +69,11 @@ export default {
       }, 50)
     },
     redrawSheep: function () {
+      const imageSize = window.innerWidth <= 767 ? 32 : 64
+
       for (const sheep of this.sheep) {
         const { image, x, y } = sheep
-        this.canvasContext.drawImage(image, x, y, 64, 64)
+        this.canvasContext.drawImage(image, x, y, imageSize, imageSize)
       }
     }
   }

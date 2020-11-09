@@ -16,8 +16,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', ...dT.fontFamily.sans],
-        handwrite: ['Mirza', 'cursive']
+        sans: ['Inter', ...dT.fontFamily.sans]
       },
       transitionDuration: {
         50: '50ms'
