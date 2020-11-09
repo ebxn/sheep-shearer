@@ -20,14 +20,10 @@ module.exports = {
         handwrite: ['Mirza', 'cursive']
       },
       transitionDuration: {
-        50: '50ms',
-        75: '75ms'
+        50: '50ms'
       },
       scale: {
         102: '1.02'
-      },
-      minHeight: function (theme) {
-        return (theme('space'))
       }
     }
   },
