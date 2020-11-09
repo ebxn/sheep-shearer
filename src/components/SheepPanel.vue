@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col w-full">
-    <div class="mb-5 lg:mb-0 text-center">
-      <h2 class="text-xl lg:text-3xl">
+    <div class="mb-5 lg:mb-0 text-center font-mono">
+      <h2 class="text-xl lg:text-2xl font-bold">
         {{ Math.floor(wool).toLocaleString() }} wool
       </h2>
-      <h3 class="text-gray-700 dark:text-gray-200 text-lg lg:text-xl">
+      <h3 class="text-gray-700 dark:text-gray-400 lg:text-md font-semibold">
         ({{ wps }} per second)
       </h3>
     </div>
