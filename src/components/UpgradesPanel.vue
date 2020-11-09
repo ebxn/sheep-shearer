@@ -2,7 +2,7 @@
   <div class="w-full">
     <ul class="space-y-5">
       <li
-        v-for="sheep in sheepTypes"
+        v-for="sheep in visibleSheepTypes"
         :key="sheep.name"
         class="cursor-pointer"
         @click="() => buySheep(sheep.type)"
@@ -25,7 +25,14 @@ export default {
   computed: {
     ...mapGetters({
       sheepTypes: 'getSheepTypes'
-    })
+    }),
+    visibleSheepTypes: function () {
+      const sheepTypeValues = Object.values(this.sheepTypes)
+
+      return sheepTypeValues.filter((val, idx) => {
+        return idx < 2 || sheepTypeValues[idx - 2].owned > 0
+      })
+    }
   },
   methods: {
     ...mapActions(['buySheep'])
