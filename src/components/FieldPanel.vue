@@ -83,9 +83,9 @@ export default {
 
 <style>
   .field {
-    background-image: url('~@/assets/img/grass.jpg')
+    background-image: url('~@/assets/img/grass.jpg');
   }
   .dark .field {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('~@/assets/img/grass.jpg')
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('~@/assets/img/grass.jpg');
   }
 </style>

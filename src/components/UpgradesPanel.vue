@@ -1,5 +1,5 @@
 <template>
-  <div class="md:overflow-y-scroll w-full h-full">
+  <div class="upgrades-panel md:overflow-y-scroll w-full h-full">
     <ul class="space-y-5">
       <li
         v-for="sheep in visibleSheepTypes"
@@ -40,3 +40,13 @@ export default {
   }
 }
 </script>
+
+<style>
+  .upgrades-panel {
+    scrollbar-color: #d2d6dc #ffffff;
+  }
+
+  .dark .upgrades-panel {
+    scrollbar-color: #4b5563 #161e2e;
+  }
+</style>
