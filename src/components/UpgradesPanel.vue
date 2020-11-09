@@ -12,6 +12,7 @@
         </h3>
         <span class="block">Price: {{ sheep.price }} wool</span>
         <span class="block">WoolPerSecond: {{ sheep.wps }}</span>
+        <span class="block">Owned: {{ sheep.owned }}</span>
       </li>
     </ul>
   </div>
