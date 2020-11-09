@@ -47,8 +47,8 @@ export default {
   methods: {
     addNewSheepToCanvas: function (sheepType) {
       const imageSize = window.innerWidth <= 767 ? 32 : 64
-      const sheepX = imageSize + Math.floor(Math.random() * (this.canvas.width - 2 * imageSize))
-      const sheepY = imageSize + Math.floor(Math.random() * (this.canvas.height - 2 * imageSize))
+      const sheepX = Math.floor(Math.random() * (this.canvas.width - imageSize))
+      const sheepY = Math.floor(Math.random() * (this.canvas.height - imageSize))
 
       const sheepImage = new Image()
       sheepImage.src = require(`@/assets/img/${sheepType}.png`)
