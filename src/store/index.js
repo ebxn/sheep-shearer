@@ -1,14 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VueXPersist from 'vuex-persist'
 
 Vue.use(Vuex)
+
+const vuexLocal = new VueXPersist({
+  storage: window.localStorage
+})
 
 export default new Vuex.Store({
   state: {
     wool: 0,
     wps: 0,
     gameInterval: null,
-    sheepTypes: {
+    sheepData: {
       standard: {
         name: 'Standard',
         type: 'standard',
@@ -65,7 +70,8 @@ export default new Vuex.Store({
         wps: 6666,
         owned: 0
       }
-    }
+    },
+    sheepDrawings: []
   },
   mutations: {
     SET_GAME_INTERVAL: function (state, payload) {
@@ -82,26 +88,33 @@ export default new Vuex.Store({
     },
     SET_SHEEP_TYPE_PRICE: function (state, payload) {
       const { type, newPrice } = payload
-      state.sheepTypes[type].price = newPrice
+      state.sheepData[type].price = newPrice
     },
     SET_SHEEP_TYPE_OWNED: function (state, payload) {
       const { type, newAmountOwned } = payload
-      state.sheepTypes[type].owned = newAmountOwned
+      state.sheepData[type].owned = newAmountOwned
+    },
+    SET_SHEEP_DRAWINGS: function (state, payload) {
+      state.sheepDrawings = [...state.sheepDrawings, payload]
     }
   },
   actions: {
     startGame: function ({ commit, state }) {
       const gameInterval = setInterval(() => {
         const { wool, wps } = state
-        const newWool = wool + wps
+        const newWool = Number((wool + wps).toFixed(1))
         commit('SET_WOOL', newWool)
       }, 1000)
       commit('SET_GAME_INTERVAL', gameInterval)
     },
 
+    _debug_StopGame: function ({ commit }) {
+      commit('CLEAR_GAME_INTERVAL')
+    },
+
     buySheep: function ({ commit, state }, type) {
-      const { wool, wps, sheepTypes } = state
-      const { wps: sheepWps, price: sheepPrice, owned: sheepOwned } = sheepTypes[type]
+      const { wool, wps, sheepData } = state
+      const { wps: sheepWps, price: sheepPrice, owned: sheepOwned } = sheepData[type]
 
       if (wool >= sheepPrice) {
         const newWool = wool - sheepPrice
@@ -121,11 +134,19 @@ export default new Vuex.Store({
     sheepClick: function ({ commit, state }) {
       const { wool } = state
       commit('SET_WOOL', wool + 1)
+    },
+
+    saveSheepDrawing: function ({ commit }, sheepDrawing) {
+      commit('SET_SHEEP_DRAWINGS', sheepDrawing)
     }
   },
   getters: {
     getWool: (state) => state.wool,
     getWps: (state) => state.wps,
-    getSheepTypes: (state) => state.sheepTypes
-  }
+    getSheepData: (state) => state.sheepData,
+    getSheepDrawings: (state) => state.sheepDrawings
+  },
+  plugins: [
+    vuexLocal.plugin
+  ]
 })
