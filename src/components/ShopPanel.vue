@@ -2,7 +2,7 @@
   <div class="upgrades-panel md:overflow-y-scroll p-4 w-full h-full">
     <ul class="space-y-5">
       <li
-        v-for="sheep in visibleSheepTypes"
+        v-for="sheep in visibleSheepData"
         :key="sheep.type"
       >
         <ShopPanelItem
@@ -25,11 +25,11 @@ export default {
   },
   computed: {
     ...mapGetters({
-      sheepTypes: 'getSheepTypes',
+      sheepData: 'getSheepData',
       wool: 'getWool'
     }),
-    visibleSheepTypes: function () {
-      const sheepTypeValues = Object.values(this.sheepTypes)
+    visibleSheepData: function () {
+      const sheepTypeValues = Object.values(this.sheepData)
 
       return sheepTypeValues.filter((val, idx) => {
         return idx < 2 || sheepTypeValues[idx - 1].owned > 0

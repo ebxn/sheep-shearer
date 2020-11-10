@@ -43,6 +43,7 @@ export default {
   },
   beforeDestroy: function () {
     window.removeEventListener('resize', this.resizeCanvas)
+    this.unsubscribeFromSheepUpdates()
   },
   methods: {
     addNewSheepToCanvas: function (sheepType) {

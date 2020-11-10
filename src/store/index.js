@@ -13,7 +13,7 @@ export default new Vuex.Store({
     wool: 0,
     wps: 0,
     gameInterval: null,
-    sheepTypes: {
+    sheepData: {
       standard: {
         name: 'Standard',
         type: 'standard',
@@ -87,26 +87,26 @@ export default new Vuex.Store({
     },
     SET_SHEEP_TYPE_PRICE: function (state, payload) {
       const { type, newPrice } = payload
-      state.sheepTypes[type].price = newPrice
+      state.sheepData[type].price = newPrice
     },
     SET_SHEEP_TYPE_OWNED: function (state, payload) {
       const { type, newAmountOwned } = payload
-      state.sheepTypes[type].owned = newAmountOwned
+      state.sheepData[type].owned = newAmountOwned
     }
   },
   actions: {
     startGame: function ({ commit, state }) {
       const gameInterval = setInterval(() => {
         const { wool, wps } = state
-        const newWool = wool + wps
+        const newWool = Number((wool + wps).toFixed(1))
         commit('SET_WOOL', newWool)
       }, 1000)
       commit('SET_GAME_INTERVAL', gameInterval)
     },
 
     buySheep: function ({ commit, state }, type) {
-      const { wool, wps, sheepTypes } = state
-      const { wps: sheepWps, price: sheepPrice, owned: sheepOwned } = sheepTypes[type]
+      const { wool, wps, sheepData } = state
+      const { wps: sheepWps, price: sheepPrice, owned: sheepOwned } = sheepData[type]
 
       if (wool >= sheepPrice) {
         const newWool = wool - sheepPrice
@@ -131,7 +131,7 @@ export default new Vuex.Store({
   getters: {
     getWool: (state) => state.wool,
     getWps: (state) => state.wps,
-    getSheepTypes: (state) => state.sheepTypes
+    getSheepData: (state) => state.sheepData
   },
   plugins: [
     vuexLocal.plugin
