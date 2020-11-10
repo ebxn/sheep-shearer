@@ -1,40 +1,62 @@
 <template>
   <button
-    class="flex justify-between items-center rounded shadow bg-white hover:bg-gray-100 dark:bg-indigo-500 dark:hover:bg-indigo-400 p-2 w-full"
+    class="rounded shadow bg-white hover:bg-gray-100 dark:bg-indigo-500 dark:hover:bg-indigo-400 p-2 w-full"
     :class="disabled ? 'opacity-30 pointer-events-none' : null"
     :disabled="disabled"
     @click="() => buySheep(sheep.type)"
   >
-    <!-- left: image, info -->
-    <div class="flex justify-start h-full">
-      <img
-        class="h-18 mr-2"
-        :src="require(`@/assets/img/${sheep.type}.png`)"
-        :alt="`a ${sheep.type} sheep`"
-      >
-      <div class="flex flex-col justify-start pt-3 text-left">
-        <h3 class="text-lg md:text-xl font-bold uppercase">
-          {{ sheep.name }}
-        </h3>
-        <span class="text-gray-700 dark:text-gray-200 md:text-lg font-semibold">
-          <img
-            src="@/assets/img/wool.png"
-            alt="wool currency icon"
-            class="inline w-5 h-5 -mt-1"
-          >
-          {{ Math.floor(sheep.price).toLocaleString() }}
-        </span>
+    <div class="flex justify-between items-center">
+      <div class="flex mr-2 h-full">
+        <img
+          class="w-18 h-18"
+          :src="require(`@/assets/img/${sheep.type}.png`)"
+          :alt="`a ${sheep.type} sheep`"
+        >
       </div>
-    </div>
 
-    <!-- right: owned -->
-    <div class="flex flex-col justify-end text-right pr-2">
-      <span class="text-2xl md:text-4xl font-bold">
-        {{ Number(sheep.owned).toLocaleString() }}
-      </span>
-      <span class="text-gray-700 dark:text-gray-200 font-semibold">
-        WPS: {{ Number(sheep.wps).toLocaleString() }}
-      </span>
+      <div class="flex flex-1 flex-col">
+        <div class="flex flex-1 justify-between items-center">
+          <div class="flex flex-col items-start pt-1">
+            <h3 class="h-full text-lg md:text-xl font-bold uppercase md:leading-tight ">
+              {{ sheep.name }}
+            </h3>
+            <span class="text-gray-700 dark:text-gray-200 md:text-lg font-semibold md:leading-tight">
+              <img
+                src="@/assets/img/wool.png"
+                alt="wool currency icon"
+                class="inline w-4 h-4 -mt-1 -mr-px"
+              >
+              {{ Math.floor(sheep.price).toLocaleString() }}
+            </span>
+          </div>
+          <div class="flex-1 text-right pt-1 pr-2">
+            <span class="text-2xl sm:text-3xl md:text-4xl font-bold md:leading-tight">
+              {{ Number(sheep.owned).toLocaleString() }}
+            </span>
+          </div>
+        </div>
+
+        <hr class="w-full my-px">
+
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center pr-2">
+          <span class="text-sm text-gray-700 dark:text-gray-200 font-semibold">
+            EACH: {{ Number(sheep.wps).toLocaleString() }}
+            <img
+              src="@/assets/img/wool.png"
+              alt="wool currency icon"
+              class="inline w-4 h-4 -mt-1 -mr-px"
+            >/s
+          </span>
+          <span class="block text-sm text-gray-700 dark:text-gray-200 font-semibold">
+            TOTAL: {{ Number(sheep.wps * sheep.owned).toLocaleString() }}
+            <img
+              src="@/assets/img/wool.png"
+              alt="wool currency icon"
+              class="inline w-4 h-4 -mt-1 -mr-px"
+            >/s
+          </span>
+        </div>
+      </div>
     </div>
   </button>
 </template>
