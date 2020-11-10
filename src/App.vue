@@ -21,7 +21,7 @@ import AppFooter from '@/components/AppFooter.vue'
 export default {
   name: 'App',
   metaInfo () {
-    const wool = this.wool
+    const wool = Math.floor(this.wool).toLocaleString()
     return {
       title: `${wool} wool`,
       titleTemplate: '%s | Sheep Shearer'
