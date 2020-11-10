@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col relative p-4 w-full">
-    <GoldCountdownBar />
+    <!-- <GoldCountdownBar /> -->
     <div class="mb-5 md:mb-0 pt-2 text-center">
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold">
         {{ Math.floor(wool).toLocaleString() }} wool
@@ -22,12 +22,12 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import GoldCountdownBar from '@/components/GoldCountdownBar.vue'
+// import GoldCountdownBar from '@/components/GoldCountdownBar.vue'
 
 export default {
   name: 'SheepPanel',
   components: {
-    GoldCountdownBar
+    // GoldCountdownBar
   },
   computed: {
     ...mapGetters({

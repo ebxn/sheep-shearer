@@ -1,7 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VueXPersist from 'vuex-persist'
 
 Vue.use(Vuex)
+
+const vuexLocal = new VueXPersist({
+  storage: window.localStorage
+})
 
 export default new Vuex.Store({
   state: {
@@ -127,5 +132,8 @@ export default new Vuex.Store({
     getWool: (state) => state.wool,
     getWps: (state) => state.wps,
     getSheepTypes: (state) => state.sheepTypes
-  }
+  },
+  plugins: [
+    vuexLocal.plugin
+  ]
 })
