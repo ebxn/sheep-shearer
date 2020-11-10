@@ -24,7 +24,7 @@ export default new Vuex.Store({
         owned: 0
       },
       gm: {
-        name: 'Gen. Modified',
+        name: 'G.M.',
         type: 'gm',
         price: 500,
         wps: 2,

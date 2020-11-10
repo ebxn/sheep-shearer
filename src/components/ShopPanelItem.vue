@@ -26,9 +26,12 @@
     </div>
 
     <!-- right: owned -->
-    <div class="text-right pr-2">
+    <div class="flex flex-col justify-end text-right pr-2">
       <span class="text-2xl md:text-4xl font-bold">
-        {{ Math.floor(sheep.owned).toLocaleString() }}
+        {{ Number(sheep.owned).toLocaleString() }}
+      </span>
+      <span class="text-gray-700 dark:text-gray-200 font-semibold">
+        WPS: {{ Number(sheep.wps).toLocaleString() }}
       </span>
     </div>
   </button>
