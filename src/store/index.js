@@ -10,7 +10,7 @@ const vuexLocal = new VueXPersist({
 
 export default new Vuex.Store({
   state: {
-    wool: 9999999,
+    wool: 0,
     wps: 0,
     gameInterval: null,
     sheepData: {

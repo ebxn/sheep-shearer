@@ -3,10 +3,10 @@
     <!-- <GoldCountdownBar /> -->
     <div class="mb-5 md:mb-0 pt-2 text-center">
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold">
-        {{ Math.floor(wool).toLocaleString() }} wool
+        {{ wool }} wool
       </h2>
       <h3 class="text-gray-700 dark:text-gray-400 md:text-lg lg:text-xl font-semibold">
-        ({{ Number(wps).toLocaleString() }} per second)
+        ({{ wps }} per second)
       </h3>
     </div>
     <div class="flex flex-1 justify-center items-center">
