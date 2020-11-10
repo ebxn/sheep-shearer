@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    wool: 0,
+    wool: 9999999999,
     wps: 0,
     gameInterval: null,
     sheepTypes: {
@@ -24,7 +24,7 @@ export default new Vuex.Store({
         owned: 0
       },
       gm: {
-        name: 'Genetically Modified',
+        name: 'Gen. Modified',
         type: 'gm',
         price: 500,
         wps: 2,

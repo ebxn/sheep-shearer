@@ -1,28 +1,25 @@
 <template>
-  <div class="upgrades-panel md:overflow-y-scroll w-full h-full">
+  <div class="upgrades-panel md:overflow-y-scroll p-4 w-full h-full">
     <ul class="space-y-5">
       <li
         v-for="sheep in visibleSheepTypes"
         :key="sheep.name"
-        class="cursor-pointer"
-        @click="() => buySheep(sheep.type)"
       >
-        <h3 class="font-semibold">
-          {{ sheep.name }}
-        </h3>
-        <span class="block">Price: {{ sheep.price }} wool</span>
-        <span class="block">WPS: {{ sheep.wps }}</span>
-        <span class="block">Owned: {{ sheep.owned }}</span>
+        <ShopPanelItem :sheep="sheep" />
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
+import ShopPanelItem from '@/components/ShopPanelItem.vue'
 
 export default {
   name: 'UpgradesPanel',
+  components: {
+    ShopPanelItem
+  },
   computed: {
     ...mapGetters({
       sheepTypes: 'getSheepTypes'
@@ -34,9 +31,6 @@ export default {
         return idx < 2 || sheepTypeValues[idx - 1].owned > 0
       })
     }
-  },
-  methods: {
-    ...mapActions(['buySheep'])
   }
 }
 </script>

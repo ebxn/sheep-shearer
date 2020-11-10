@@ -1,5 +1,5 @@
 <template>
-  <header class="border-b dark:border-indigo-500 p-4">
+  <header class="border-b dark:border-indigo-500 bg-white dark:bg-gray-900 p-4">
     <div class="flex justify-between items-center">
       <h1 class="text-2xl font-semibold leading-none">
         Sheep Shearer

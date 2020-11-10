@@ -24,8 +24,7 @@ export default {
   created: function () {
     this.unsubscribeFromSheepUpdates = this.$store.subscribe(({ type, payload }) => {
       if (type === 'SET_SHEEP_TYPE_OWNED') {
-        console.log(`You purchased a ${payload.type} sheep`)
-        this.addNewSheepToCanvas('sheep_scaled')
+        this.addNewSheepToCanvas(payload.type)
       }
     })
   },
