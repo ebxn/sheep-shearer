@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     addNewSheepToCanvas: function (sheepType) {
-      const imageSize = window.innerWidth <= 767 ? 32 : 64
+      const imageSize = window.innerWidth <= 899 ? 40 : 64
       const sheepX = Math.floor(Math.random() * (this.canvas.width - imageSize))
       const sheepY = Math.floor(Math.random() * (this.canvas.height - imageSize))
 
@@ -69,7 +69,7 @@ export default {
       }, 50)
     },
     redrawSheep: function () {
-      const imageSize = window.innerWidth <= 767 ? 32 : 64
+      const imageSize = window.innerWidth <= 899 ? 40 : 64
 
       for (const sheep of this.sheep) {
         const { image, x, y } = sheep
