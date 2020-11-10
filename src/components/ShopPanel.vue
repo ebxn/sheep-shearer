@@ -3,9 +3,12 @@
     <ul class="space-y-5">
       <li
         v-for="sheep in visibleSheepTypes"
-        :key="sheep.name"
+        :key="sheep.type"
       >
-        <ShopPanelItem :sheep="sheep" />
+        <ShopPanelItem
+          :sheep="sheep"
+          :disabled="wool < sheep.price"
+        />
       </li>
     </ul>
   </div>
@@ -22,7 +25,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      sheepTypes: 'getSheepTypes'
+      sheepTypes: 'getSheepTypes',
+      wool: 'getWool'
     }),
     visibleSheepTypes: function () {
       const sheepTypeValues = Object.values(this.sheepTypes)

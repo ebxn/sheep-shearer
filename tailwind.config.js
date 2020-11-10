@@ -23,6 +23,9 @@ module.exports = {
       fontFamily: {
         sans: ['Oxanium', ...dT.fontFamily.sans]
       },
+      opacity: {
+        30: '0.3'
+      },
       transitionDuration: {
         50: '50ms'
       },

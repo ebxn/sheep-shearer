@@ -1,6 +1,8 @@
 <template>
   <button
     class="flex justify-between items-center rounded shadow bg-white hover:bg-gray-100 dark:bg-indigo-500 dark:hover:bg-indigo-400 p-2 w-full"
+    :class="disabled ? 'opacity-30 pointer-events-none' : null"
+    :disabled="disabled"
     @click="() => buySheep(sheep.type)"
   >
     <!-- left: image, info -->
@@ -47,6 +49,11 @@ export default {
       type: Object,
       required: true,
       default: () => {}
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   methods: {

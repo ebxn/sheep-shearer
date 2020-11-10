@@ -1,5 +1,5 @@
 <template functional>
-  <footer class="border-t dark:border-indigo-500 p-4">
+  <footer class="border-t dark:border-indigo-500 bg-white dark:bg-gray-900 p-4">
     <div class="text-gray-700 dark:text-gray-300 text-center text-xs font-semibold uppercase">
       <span>Made with 🐑 by ebxn</span>
       <span> | </span>
