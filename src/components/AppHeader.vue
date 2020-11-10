@@ -1,5 +1,8 @@
 <template>
-  <header class="border-b dark:border-indigo-500 bg-white dark:bg-gray-900 p-4">
+  <header
+    class="border-b dark:border-indigo-500 bg-white dark:bg-gray-900 p-4 w-full h-16"
+    :class="fixed ? 'fixed z-50' : null"
+  >
     <div class="flex justify-between items-center">
       <h1 class="text-2xl font-semibold leading-none">
         Sheep Shearer
@@ -35,6 +38,13 @@
 <script>
 export default {
   name: 'AppHeader',
+  props: {
+    fixed: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
   data: () => ({
     isDarkMode: true
   }),
