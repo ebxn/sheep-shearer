@@ -9,9 +9,9 @@ export default new Vuex.Store({
     wps: 0,
     gameInterval: null,
     sheepTypes: {
-      regular: {
-        name: 'Sheep',
-        type: 'regular',
+      standard: {
+        name: 'Standard',
+        type: 'standard',
         price: 15,
         wps: 0.1,
         owned: 0

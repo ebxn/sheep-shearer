@@ -11,7 +11,7 @@
     <div class="flex flex-1 justify-center items-center">
       <img
         class="transition duration-50 ease-in-out transform hover:scale-102 active:scale-100 w-64 md:w-3/4 h-64 md:h-auto cursor-pointer"
-        src="@/assets/img/regular.png"
+        src="@/assets/img/standard.png"
         alt="A sheep"
         @click="sheepClick"
       >
