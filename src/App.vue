@@ -15,14 +15,14 @@
         </div>
 
         <!-- field -->
-        <div class="flex w-full md:w-6/12">
+        <div class="flex w-full md:w-4/12 lg:w-5/12 xl:w-6/12">
           <div class="w-full h-64 md:h-auto">
             <FieldPanel />
           </div>
         </div>
 
         <!-- upgrades -->
-        <div class="flex w-full md:overflow-y-hidden md:w-3/12 h-full">
+        <div class="flex md:overflow-y-hidden w-full md:w-5/12 lg:w-4/12 xl:w-3/12 h-full">
           <div class="md:overflow-y-hidden w-full h-full ">
             <ShopPanel />
           </div>

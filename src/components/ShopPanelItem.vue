@@ -14,13 +14,21 @@
         <h3 class="text-lg md:text-xl font-bold uppercase">
           {{ sheep.name }}
         </h3>
-        <span class="text-gray-700 dark:text-gray-200 md:text-md font-semibold">Cost: {{ sheep.price }}</span>
+        <span class="text-gray-700 dark:text-gray-200 md:text-lg font-semibold">
+          <img
+            src="@/assets/img/wool.png"
+            alt="wool currency icon"
+            class="inline w-5 h-5 -mt-1"
+          >
+          {{ Math.floor(sheep.price).toLocaleString() }}
+        </span>
       </div>
     </div>
+
     <!-- right: owned -->
     <div class="text-right pr-2">
-      <span class="text-3xl md:text-5xl font-bold">
-        {{ sheep.owned }}
+      <span class="text-2xl md:text-4xl font-bold">
+        {{ Math.floor(sheep.owned).toLocaleString() }}
       </span>
     </div>
   </button>

@@ -5,7 +5,7 @@
         {{ Math.floor(wool).toLocaleString() }} wool
       </h2>
       <h3 class="text-gray-700 dark:text-gray-400 md:text-xl font-semibold">
-        ({{ wps }} per second)
+        ({{ Number(wps).toLocaleString() }} per second)
       </h3>
     </div>
     <div class="flex flex-1 justify-center items-center">

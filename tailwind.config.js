@@ -2,9 +2,14 @@ const dT = require('tailwindcss/defaultTheme')
 
 module.exports = {
   future: 'all',
-  experimental: 'all',
+  experimental: {
+    uniformColorPalette: true,
+    extendedSpacingScale: true,
+    darkModeVariant: true
+  },
   dark: 'class',
   purge: {
+    // enabled: true,
     content: [
       'public/index.html',
       'src/**/*.vue'
@@ -28,6 +33,12 @@ module.exports = {
       spacing: {
         18: '4.5rem'
       }
+    },
+    screens: {
+      sm: '640px',
+      md: '900px',
+      lg: '1280px',
+      xl: '1680px'
     }
   },
   variants: {

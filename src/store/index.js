@@ -52,7 +52,7 @@ export default new Vuex.Store({
         owned: 0
       },
       interdimensional: {
-        name: 'Interdimensional',
+        name: 'Sheep?',
         type: 'interdimensional',
         price: 200000,
         wps: 400,
