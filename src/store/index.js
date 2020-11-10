@@ -141,8 +141,8 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    getWool: (state) => state.wool,
-    getWps: (state) => state.wps,
+    getWool: (state) => Math.floor(state.wool).toLocaleString(),
+    getWps: (state) => Number(state.wps).toLocaleString(),
     getSheepData: (state) => state.sheepData,
     getSheepDrawings: (state) => state.sheepDrawings
   },
