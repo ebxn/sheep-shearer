@@ -15,16 +15,16 @@
       </div>
 
       <div class="flex flex-1 flex-col">
-        <div class="flex flex-1 justify-between items-center">
+        <div class="flex justify-between items-center">
           <div class="flex flex-col items-start pt-1">
             <h3 class="h-full text-lg md:text-xl font-bold uppercase md:leading-tight ">
               {{ sheep.name }}
             </h3>
-            <span class="text-gray-700 dark:text-gray-200 md:text-lg font-semibold md:leading-tight">
+            <span class="inline-flex items-center text-gray-700 dark:text-gray-200 md:text-lg font-semibold md:leading-snug ">
               <img
                 src="@/assets/img/wool.png"
                 alt="wool currency icon"
-                class="inline w-4 h-4 -mt-1 -mr-px"
+                class="w-4 h-4 -mt-1/2 mr-px"
               >
               {{ Math.floor(sheep.price).toLocaleString() }}
             </span>
