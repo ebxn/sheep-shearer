@@ -29,6 +29,9 @@ module.exports = {
       transitionDuration: {
         50: '50ms'
       },
+      transitionProperty: {
+        width: 'width'
+      },
       scale: {
         102: '1.02'
       },
