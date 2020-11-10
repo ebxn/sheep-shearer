@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    wool: 9999999999,
+    wool: 0,
     wps: 0,
     gameInterval: null,
     sheepTypes: {
