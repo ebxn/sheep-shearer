@@ -70,7 +70,8 @@ export default new Vuex.Store({
         wps: 6666,
         owned: 0
       }
-    }
+    },
+    sheepDrawings: []
   },
   mutations: {
     SET_GAME_INTERVAL: function (state, payload) {
@@ -92,6 +93,9 @@ export default new Vuex.Store({
     SET_SHEEP_TYPE_OWNED: function (state, payload) {
       const { type, newAmountOwned } = payload
       state.sheepData[type].owned = newAmountOwned
+    },
+    SET_SHEEP_DRAWINGS: function (state, payload) {
+      state.sheepDrawings = [...state.sheepDrawings, payload]
     }
   },
   actions: {
@@ -102,6 +106,10 @@ export default new Vuex.Store({
         commit('SET_WOOL', newWool)
       }, 1000)
       commit('SET_GAME_INTERVAL', gameInterval)
+    },
+
+    _debug_StopGame: function ({ commit }) {
+      commit('CLEAR_GAME_INTERVAL')
     },
 
     buySheep: function ({ commit, state }, type) {
@@ -126,12 +134,17 @@ export default new Vuex.Store({
     sheepClick: function ({ commit, state }) {
       const { wool } = state
       commit('SET_WOOL', wool + 1)
+    },
+
+    saveSheepDrawing: function ({ commit }, sheepDrawing) {
+      commit('SET_SHEEP_DRAWINGS', sheepDrawing)
     }
   },
   getters: {
     getWool: (state) => state.wool,
     getWps: (state) => state.wps,
-    getSheepData: (state) => state.sheepData
+    getSheepData: (state) => state.sheepData,
+    getSheepDrawings: (state) => state.sheepDrawings
   },
   plugins: [
     vuexLocal.plugin

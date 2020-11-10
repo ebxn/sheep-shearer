@@ -11,17 +11,24 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'FieldPanel',
   data: () => ({
     canvas: null,
     canvasParent: null,
     canvasContext: null,
-    sheep: [],
     resizeTimeout: null,
     unsubscribeFromSheepUpdates: null
   }),
+  computed: {
+    ...mapGetters({
+      sheepDrawings: 'getSheepDrawings'
+    })
+  },
   created: function () {
+    // triggers addNewSheepToCanvas each time a new sheep is bought
     this.unsubscribeFromSheepUpdates = this.$store.subscribe(({ type, payload }) => {
       if (type === 'SET_SHEEP_TYPE_OWNED') {
         this.addNewSheepToCanvas(payload.type)
@@ -40,6 +47,9 @@ export default {
     this.canvas.height = canvasParent.clientHeight
 
     window.addEventListener('resize', this.resizeCanvas)
+
+    // when reloading game
+    this.redrawSheep()
   },
   beforeDestroy: function () {
     window.removeEventListener('resize', this.resizeCanvas)
@@ -55,7 +65,7 @@ export default {
       sheepImage.src = require(`@/assets/img/${sheepType}.png`)
       sheepImage.onload = () => {
         this.canvasContext.drawImage(sheepImage, sheepX, sheepY, imageSize, imageSize)
-        this.sheep.push({ image: sheepImage, x: sheepX, y: sheepY })
+        this.saveSheepDrawing({ type: sheepType, x: sheepX, y: sheepY })
       }
     },
     resizeCanvas: function () {
@@ -67,16 +77,21 @@ export default {
         this.canvas.width = this.canvasParent.offsetWidth
         this.canvas.height = this.canvasParent.offsetHeight
         this.redrawSheep()
-      }, 50)
+      }, 100)
     },
     redrawSheep: function () {
       const imageSize = window.innerWidth <= 899 ? 40 : 64
 
-      for (const sheep of this.sheep) {
-        const { image, x, y } = sheep
-        this.canvasContext.drawImage(image, x, y, imageSize, imageSize)
+      for (const sheep of this.sheepDrawings) {
+        const { type, x, y } = sheep
+        const sheepImage = new Image()
+        sheepImage.src = require(`@/assets/img/${type}.png`)
+        sheepImage.onload = () => {
+          this.canvasContext.drawImage(sheepImage, x, y, imageSize, imageSize)
+        }
       }
-    }
+    },
+    ...mapActions(['saveSheepDrawing'])
   }
 }
 </script>
