@@ -21,8 +21,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', ...dT.fontFamily.sans],
-        cursive: ['Oxanium', 'cursive']
+        sans: ['Oxanium', ...dT.fontFamily.sans]
       },
       transitionDuration: {
         50: '50ms'
