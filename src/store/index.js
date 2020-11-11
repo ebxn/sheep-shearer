@@ -91,8 +91,8 @@ export default new Vuex.Store({
       state.sheepData[type].price = newPrice
     },
     SET_SHEEP_TYPE_OWNED: function (state, payload) {
-      const { type, newAmountOwned } = payload
-      state.sheepData[type].owned = newAmountOwned
+      const { type, newOwned } = payload
+      state.sheepData[type].owned = newOwned
     },
     SET_SHEEP_DRAWINGS: function (state, payload) {
       state.sheepDrawings = [...state.sheepDrawings, payload]
@@ -113,21 +113,30 @@ export default new Vuex.Store({
     },
 
     buySheep: function ({ commit, state }, type) {
-      const { wool, wps, sheepData } = state
-      const { wps: sheepWps, price: sheepPrice, owned: sheepOwned } = sheepData[type]
+      /**
+       * this logic will remain here in case of a mind change, but it will allow for
+       * adding buy x1, x5 and x10 in the future
+       *
+       * total price: [...Array(state.buyAmount)].reduce((acc, _, idx) => acc + (sheep.price * (1.15 ** idx)), 0)
+       * new price: sheep.price * 1.15 ** state.buyAmount
+       */
+      const sheep = state.sheepData[type]
 
-      if (wool >= sheepPrice) {
-        const newWool = wool - sheepPrice
+      // storing in variable in case of buying in multiples
+      const totalPrice = sheep.price
+
+      if (state.wool >= totalPrice) {
+        const newWool = state.wool - totalPrice
         commit('SET_WOOL', newWool)
 
-        const newAmountOwned = sheepOwned + 1
-        commit('SET_SHEEP_TYPE_OWNED', { type, newAmountOwned })
+        const newOwned = sheep.owned + 1
+        commit('SET_SHEEP_TYPE_OWNED', { newOwned, type })
 
-        const newWps = Number((wps + sheepWps).toFixed(1))
+        const newWps = state.wps + (newOwned * sheep.wps)
         commit('SET_WPS', newWps)
 
-        const newPrice = Math.floor(sheepPrice * 1.15)
-        commit('SET_SHEEP_TYPE_PRICE', { type, newPrice })
+        const newPrice = sheep.price * 1.15
+        commit('SET_SHEEP_TYPE_PRICE', { newPrice, type })
       }
     },
 
