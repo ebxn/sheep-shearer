@@ -132,7 +132,7 @@ export default new Vuex.Store({
         const newOwned = sheep.owned + 1
         commit('SET_SHEEP_TYPE_OWNED', { newOwned, type })
 
-        const newWps = state.wps + (newOwned * sheep.wps)
+        const newWps = state.wps + sheep.wps
         commit('SET_WPS', newWps)
 
         const newPrice = sheep.price * 1.15
