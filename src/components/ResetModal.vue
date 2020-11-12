@@ -12,7 +12,7 @@
           </h2>
           <div class="md:flex md:justify-end space-y-2 md:space-x-2 md:space-x-reverse md:space-y-0 w-full text-sm md:text-base">
             <button
-              class="md:order-2 rounded bg-red-500 hover:bg-red-600 dark:bg-red-700 dark:hover:bg-red-600 px-3 py-2 w-full md:w-auto text-sm md:text-basetext-white font-semibold uppercase tracking-wide"
+              class="md:order-2 rounded bg-red-500 hover:bg-red-600 dark:bg-red-700 dark:hover:bg-red-600 px-3 py-2 w-full md:w-auto text-sm md:text-base text-white font-semibold uppercase tracking-wide"
               @click="handleResetClick"
             >
               Reset
