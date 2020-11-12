@@ -30,8 +30,14 @@ export default {
   created: function () {
     // triggers addNewSheepToCanvas each time a new sheep is bought
     this.unsubscribeFromSheepUpdates = this.$store.subscribe(({ type, payload }) => {
-      if (type === 'SET_SHEEP_TYPE_OWNED') {
-        this.addNewSheepToCanvas(payload.type)
+      switch (type) {
+        case 'SET_SHEEP_TYPE_OWNED':
+          this.addNewSheepToCanvas(payload.type)
+          break
+
+        case 'RESET_GAME':
+          this.resizeCanvas()
+          break
       }
     })
   },
@@ -82,6 +88,7 @@ export default {
     redrawSheep: function () {
       const imageSize = window.innerWidth <= 899 ? 40 : 64
 
+      // eslint-disable-next-line
       for (const sheep of this.sheepDrawings) {
         const { type, x, y } = sheep
         const sheepImage = new Image()

@@ -1,43 +1,47 @@
 <template>
   <header
     class="border-b dark:border-indigo-500 bg-white dark:bg-gray-900 p-4 w-full h-16"
-    :class="fixed ? 'fixed z-50' : null"
+    :class="fixed ? 'fixed z-40' : null"
   >
     <div class="flex justify-between items-center">
       <h1 class="text-2xl font-semibold leading-none">
         Sheep Shearer
       </h1>
-      <svg
-        v-if="isDarkMode"
-        class="p-1 w-8 h-8 cursor-pointer"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-        @click="toggleDarkMode"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-          clip-rule="evenodd"
-        />
-      </svg>
-      <svg
-        v-else
-        class="p-1 w-8 h-8 cursor-pointer"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-        @click="toggleDarkMode"
-      >
-        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-      </svg>
+      <div class="flex space-x-4">
+        <button @click="handleShowResetModal">
+          <RefreshIcon class="p-1 w-8 h-8 cursor-pointer" />
+        </button>
+        <button
+          v-if="isDarkMode"
+          @click="toggleDarkMode"
+        >
+          <SunIcon class="p-1 w-8 h-8 cursor-pointer" />
+        </button>
+        <button
+          v-else
+          @click="toggleDarkMode"
+        >
+          <MoonIcon class="p-1 w-8 h-8 cursor-pointer" />
+        </button>
+      </div>
     </div>
   </header>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
+import SunIcon from '@/assets/svg/sun.icon.svg'
+import MoonIcon from '@/assets/svg/moon.icon.svg'
+import RefreshIcon from '@/assets/svg/refresh.icon.svg'
+
 export default {
   name: 'AppHeader',
+  components: {
+    SunIcon,
+    MoonIcon,
+    RefreshIcon
+  },
   props: {
     fixed: {
       type: Boolean,
@@ -55,7 +59,12 @@ export default {
     toggleDarkMode: function () {
       this.isDarkMode = !this.isDarkMode
       document.body.classList.toggle('dark')
-    }
+    },
+    handleShowResetModal: function () {
+      document.body.classList.add('overflow-hidden')
+      this.showResetModal()
+    },
+    ...mapActions(['showResetModal'])
   }
 }
 </script>

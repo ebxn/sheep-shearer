@@ -1,6 +1,6 @@
 <template>
   <div class="upgrades-panel md:overflow-y-scroll p-4 w-full h-full">
-    <ul class="space-y-5">
+    <ul class="space-y-5 pb-4">
       <li
         v-for="sheep in visibleSheepData"
         :key="sheep.type"

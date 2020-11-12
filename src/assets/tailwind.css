@@ -7,3 +7,17 @@
     touch-action: manipulation;
     user-select: none;
 }
+
+/* add currently unsupported dark variants */
+.dark .dark\:bg-opacity-30 {
+    --bg-opacity: 0.30 !important;
+}
+.dark .dark\:bg-opacity-50 {
+    --bg-opacity: 0.25 !important;
+}
+.dark .dark\:bg-opacity-75 {
+    --bg-opacity: 0.25 !important;
+}
+.dark .dark\:bg-opacity-100 {
+    --bg-opacity: 0.25 !important;
+}
